@@ -5,12 +5,12 @@ import {
   ActivityIndicator,
   Alert,
   ScrollView,
-  Text,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 
 import GameCard from "@/components/game/GameCard";
+import Typography from "@/components/ui/Typography";
 import { AppThemeContext } from "@/context/AppThemeProvider";
 import { useUser } from "@/context/UserProvider";
 import { Game } from "@/models/game";
@@ -95,14 +95,14 @@ export default function GameDetail() {
   if (error || !game) {
     return (
       <View className="flex-1 justify-center items-center bg-primary p-4">
-        <Text className="text-accent text-base">
+        <Typography className="text-accent text-base">
           {error ?? "Game not found"}
-        </Text>
+        </Typography>
         <TouchableOpacity
           onPress={() => router.back()}
           className="mt-4 px-4 py-2 bg-secondary rounded"
         >
-          <Text className="text-primary">Go back</Text>
+          <Typography className="text-primary">Go back</Typography>
         </TouchableOpacity>
       </View>
     );
@@ -121,12 +121,14 @@ export default function GameDetail() {
           vertical
         />
 
-        <Text className="text-accent mb-4 text-center">{start}</Text>
+        <Typography className="text-accent mb-4 text-center">
+          {start}
+        </Typography>
 
         {game.status !== "upcoming" && (
-          <Text className="text-red-400 text-center mb-4">
+          <Typography className="text-red-400 text-center mb-4">
             Prediction disabled - game is {game.status}
-          </Text>
+          </Typography>
         )}
       </ScrollView>
 
@@ -139,9 +141,9 @@ export default function GameDetail() {
           } ${isDisabled ? "opacity-40" : ""}`}
           style={{ borderWidth: 1 }}
         >
-          <Text className="text-primary text-center">
+          <Typography className="text-primary text-center">
             Pick {game.homeTeam.name}
-          </Text>
+          </Typography>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -152,9 +154,9 @@ export default function GameDetail() {
           } ${isDisabled ? "opacity-40" : ""}`}
           style={{ borderWidth: 1 }}
         >
-          <Text className="text-primary text-center">
+          <Typography className="text-primary text-center">
             Pick {game.awayTeam.name}
-          </Text>
+          </Typography>
         </TouchableOpacity>
 
         {game.odds?.spread != null && (
@@ -168,11 +170,11 @@ export default function GameDetail() {
             } ${isDisabled ? "opacity-40" : ""}`}
             style={{ borderWidth: 1 }}
           >
-            <Text className="text-primary text-center">
+            <Typography className="text-primary text-center">
               Pick the spread (
               {game.odds.spread > 0 ? `+${game.odds.spread}` : game.odds.spread}
               )
-            </Text>
+            </Typography>
           </TouchableOpacity>
         )}
       </View>

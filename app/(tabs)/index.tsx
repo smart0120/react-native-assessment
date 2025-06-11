@@ -1,17 +1,13 @@
 import GameCard from "@/components/game/GameCard";
 import Tab from "@/components/game/Tab";
+import Typography from "@/components/ui/Typography";
 import { AppThemeContext } from "@/context/AppThemeProvider";
 import { useGames } from "@/hooks/useGames";
 import { Game } from "@/models/game";
 import { useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import React, { useCallback, useContext, useMemo, useState } from "react";
-import {
-  ActivityIndicator,
-  FlatList,
-  Text,
-  View
-} from "react-native";
+import { ActivityIndicator, FlatList, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function Dashboard() {
@@ -89,12 +85,20 @@ export default function Dashboard() {
           springConfig={{ damping: 18, stiffness: 150 }}
           containerStyle={{ marginBottom: 15 }}
         />
-        <FlatList
-          data={filteredGames}
-          keyExtractor={(item) => item.id}
-          renderItem={renderGameCard}
-          showsVerticalScrollIndicator={false}
-        />
+        {filteredGames.length === 0 ? (
+          <View className="flex-1 flex flex-row justify-center items-center">
+            <Typography className="text-primary">
+              No {selectedOption} matches :(
+            </Typography>
+          </View>
+        ) : (
+          <FlatList
+            data={filteredGames}
+            keyExtractor={(item) => item.id}
+            renderItem={renderGameCard}
+            showsVerticalScrollIndicator={false}
+          />
+        )}
       </View>
     </>
   );

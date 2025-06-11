@@ -38,7 +38,14 @@ export default function RootLayout() {
                 <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
                 <Stack.Screen
                   name="game/[id]"
-                  options={{ title: "Game Detail" }}
+                  options={{
+                    title: "Game Detail",
+                    headerTitleStyle: {
+                      fontFamily: "Montserrat",
+                    },
+                    headerBackTitle: "Matches",
+                    headerBackTitleStyle: { fontFamily: "Montserrat" },
+                  }}
                 />
                 <Stack.Screen
                   name="+not-found"

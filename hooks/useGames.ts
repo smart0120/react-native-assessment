@@ -7,22 +7,26 @@ import { getGames } from "../services/gameService";
 
 export const useGames = () => {
   const [games, setGames] = useState<Game[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<Error | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const load = async () => {
+    try {
+      const data = await getGames();
+      setGames(data);
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetch = async () => {
-      setLoading(true);
-      try {
-        const data = await getGames();
-        setGames(data);
-      } catch (err) {
-        setError(err as Error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetch();
+    load();
+    const interval = setInterval(() => {
+      load();
+    }, 10000); // poll every 10 sec
+    return () => clearInterval(interval);
   }, []);
 
   return { games, loading, error };

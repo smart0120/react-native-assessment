@@ -1,15 +1,15 @@
 import React from "react";
 import {
-  Text,
   TouchableOpacity,
   useWindowDimensions,
-  View,
+  View
 } from "react-native";
 import Animated, {
   useAnimatedStyle,
   withSpring,
   withTiming,
 } from "react-native-reanimated";
+import Typography from "../ui/Typography";
 
 type TabProps = {
   height?: number;
@@ -109,12 +109,12 @@ const Tab: React.FC<TabProps> = React.memo(
                 },
               ]}
             >
-              <Text
+              <Typography
                 style={[isActive ? activeLabelStyle : labelStyle]}
                 className={isActive ? "text-accent font-bold" : "text-primary"}
               >
                 {option.charAt(0).toUpperCase() + option.slice(1)}
-              </Text>
+              </Typography>
             </TouchableOpacity>
           );
         })}

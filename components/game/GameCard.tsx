@@ -2,7 +2,8 @@ import { Game } from "@/models/game";
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
 import React from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
+import Typography from "../ui/Typography";
 
 type Props = {
   game: Game;
@@ -64,15 +65,16 @@ export default function GameCard({
               style={{ width: 100, height: 100 }}
               contentFit="contain"
             />
-            <Text
+            <Typography
               className="text-accent font-bold text-2xl"
-              style={{ fontFamily: "Tapestry" }}
+              variant="heading"
+              fontFamily="accent"
             >
               {team.name}
-            </Text>
-            <Text className="text-primary font-bold text-lg">
+            </Typography>
+            <Typography className="text-primary font-bold text-lg">
               {team.abbreviation}
-            </Text>
+            </Typography>
           </View>
         ))}
       </View>
@@ -80,37 +82,45 @@ export default function GameCard({
       {vertical && (
         <>
           <View className="absolute top-40 left-10">
-            <Text
+            <Typography
               className="text-primary text-8xl"
-              style={{ fontFamily: "Tapestry" }}
+              variant="heading"
+              fontFamily="accent"
             >
               V
-            </Text>
+            </Typography>
           </View>
           <View className="absolute top-40 right-10">
-            <Text
+            <Typography
               className="text-primary text-8xl"
-              style={{ fontFamily: "Tapestry" }}
+              variant="heading"
+              fontFamily="accent"
             >
               S
-            </Text>
+            </Typography>
           </View>
         </>
       )}
       {!vertical && (
         <View className="relative">
           <View className="absolute inset-0 -top-[220px] justify-center items-center flex">
-            <Text className="text-primary font-bold text-2xl">VS</Text>
+            <Typography className="text-primary font-bold text-2xl">
+              VS
+            </Typography>
           </View>
-          <Text className="text-secondary text-center mt-2">{dateStr}</Text>
+          <Typography className="text-secondary text-center mt-2">
+            {dateStr}
+          </Typography>
         </View>
       )}
 
       {spread && (
-        <Text className="text-primary text-center mt-1">{spread}</Text>
+        <Typography className="text-primary text-center mt-1">
+          {spread}
+        </Typography>
       )}
       <View className="absolute bottom-2 right-2 bg-primary px-2 py-1 rounded-full">
-        <Text
+        <Typography
           className={
             game.status === "live"
               ? "text-accent"
@@ -120,7 +130,7 @@ export default function GameCard({
           }
         >
           {statusIcon} {game.status}
-        </Text>
+        </Typography>
       </View>
     </Container>
   );

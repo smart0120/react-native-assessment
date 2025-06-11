@@ -1,50 +1,62 @@
-# Welcome to your Expo app 👋
+# 🏈 Sport Prediction App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A mobile app built with Expo and React Native to simulate live game predictions with polling and mock APIs.
 
-## Get started
+## ✨ Features
 
-1. Install dependencies
+- Expo Router for seamless navigation
+- Tailwind CSS via NativeWind for styling
+- Context API for theme & user state
+- Live polling to simulate real-time updates
+- Reusable components (`GameCard`, `Typography`)
+- Support for light/dark themes
+- Type-safe with TypeScript
+- Optimized performance via FlatList & memoization
 
-   ```bash
-   npm install
-   ```
+## 📦 Tech Stack
 
-2. Start the app
+- Expo (React Native)
+- TypeScript
+- NativeWind (Tailwind)
+- React Context API
+- Expo Router
+- React Native SVG
 
-   ```bash
-   npx expo start
-   ```
+## 📱 Screens
 
-In the output, you'll find options to open the app in a
+- Dashboard with game list (filter by status)
+- Game detail screen with prediction buttons
+- Profile screen with user picks and stats
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## 🧪 Local Setup
 
 ```bash
-npm run reset-project
+git clone git@github.com:smart0120/react-native-assessment.git
+cd sports-prediction-app
+
+# Install dependencies
+npm install
+
+# Start Expo dev server
+npx expo start
+
+📂 Project Structure
+/app
+  /(tabs)
+    game/[id].tsx   # Game detail screen
+    index.tsx       # Dashboard
+  /components       # UI components
+  /context          # Theme & user providers
+  /hooks            # useGames, etc.
+  /models           # TypeScript models
+  /services         # Mock APIs
+  /utils            # Mock DB
+/global.css         # Tailwind entry
+/metro.config.js    # Metro config with NativeWind + SVG support
+
+🔮 Future Plans
+Real backend with Firebase/Supabase
+Prediction analytics
+Admin dashboard to add matches
+Leaderboards
 ```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.

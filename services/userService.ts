@@ -9,6 +9,7 @@ const mockUser: User = {
   id: "user-123",
   name: "Sammie",
   balance: 5000,
+  email: "sammie@test.com",
 };
 
 let mockPicks: Pick[] = [];

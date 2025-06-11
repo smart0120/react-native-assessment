@@ -66,6 +66,10 @@ module.exports = {
           light: "var(--color-primary-light)",
         },
       },
+      fontFamily: {
+        primary: ["Montserrat", "sans-serif"],
+        accent: ["Tapestry", "serif"],
+      },
     },
   },
   plugins: [],
