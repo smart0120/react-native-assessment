@@ -32,7 +32,7 @@ A mobile app built with Expo and React Native to simulate live game predictions 
 
 ```bash
 git clone git@github.com:smart0120/react-native-assessment.git
-cd sports-prediction-app
+cd react-native-assessment
 
 # Install dependencies
 npm install
